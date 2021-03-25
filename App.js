@@ -1,21 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import {View} from 'react-native'
+import Login from './src/authentications/login'
+import DrawerNavigation from './src/navigations/drawernavigation' 
+import {createAppContainer} from 'react-navigation'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+//const Navigation = createAppContainer(Homestack)
+
+/***setup the login with the dynamic naivigation and drawer navigation */
+
+export default function app(){
+  return(
+       <DrawerNavigation />
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
