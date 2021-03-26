@@ -15,7 +15,7 @@ const screens ={
             return{
                 headerLeft:()=>(null),
                 headerTitle:() => (<Header navigation={navigation} title={'Home'} />),
-                headerStyle:{backgroundColor:'#C0C0C0'}
+                headerStyle:{backgroundColor:'#eee'}
             }
            
         }

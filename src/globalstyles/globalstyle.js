@@ -10,6 +10,20 @@ export const styles=StyleSheet.create({
         padding:20,
     },
 
+    TextInput:{
+        backgroundColor:'#fff'
+    },
+
+    form:{
+        flex:1,       
+        padding:3,
+    },
+
+    card:{
+        padding:20,
+        backgroundColor:'#eee'
+    },
+
     navigation:{
         flex:1,
         flexDirection:'row'

@@ -10,8 +10,8 @@ const screens={
         navigationOptions:({navigation}) => {
             return{
                 headerLeft:()=>(null),
-                headerTitle:() => (<Header navigation={navigation} title={'About'} />),
-                headerStyle:{backgroundColor:'#C0C0C0'}
+                headerTitle:() => (<Header navigation={navigation} title={'NewOrder'} />),
+                headerStyle:{backgroundColor:'#eee'}
             }
            
         }
