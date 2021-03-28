@@ -3,9 +3,12 @@ import {View,Text,StyleSheet,ScrollView} from 'react-native'
 import {TextInput, Button} from 'react-native-paper'
 import {styles} from '../globalstyles/globalstyle'
 import axios from 'axios'
+import {useDispatch} from 'react-redux'
+import updatedata from '../middleware/middleware-thunk'
 
 export default function neworder(){
 
+    const dispatch = useDispatch()
     const [name,setName] = useState()
     const [brandName,setBrandName] = useState()
     const [modelName,setModelName] = useState()
@@ -23,7 +26,10 @@ export default function neworder(){
             address:address,
             quantities:quantities
         })
-        .then(res=>console.log(res))
+        .then(res=>{
+            console.log(res)
+            dispatch(updatedata)
+        })
         .catch(err=>console.log(err.response))
     }
 

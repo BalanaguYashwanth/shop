@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text,ScrollView } from 'react-native'
+import { View, Text,ScrollView,Alert } from 'react-native'
 import { Card, Title, Paragraph, Button, Portal, Dialog, TextInput, Provider } from 'react-native-paper'
 import { styles } from '../globalstyles/globalstyle'
 import axios from 'axios'
 import store from '../store/index'
 import {useDispatch, useSelector} from 'react-redux'
+import updatedata from '../middleware/middleware-thunk'
 
 function home() {
     const [dummydetails, setDummyDetails] = useState([{ id: 1, name: 'yash', itemname: 'furtuniture', companyname: 'Berg furniture', dimensions: '22-22-22', quantities: '4', address: '315,29th street, kamber colony,annanagarwest,chennai' }])
@@ -12,7 +13,7 @@ function home() {
     const dispatch = useDispatch()
     const details = useSelector(state=>state.data)
     //const details1 = useSelector(state=>state)
-    console.log('djknd',details)
+    //console.log('djknd',details1)
     const [editdata,setEditdata] = useState()
     const [visible, setVisible] = useState(false)
 
@@ -24,7 +25,7 @@ function home() {
         //     })
         //     .catch(err => console.log(err))
         //    // store.dispatch({type:'ADD_DATA'})
-        dispatch({type:'ADD_DATA'})
+        dispatch(updatedata)
     }, [])
 
     function edited(){
@@ -39,20 +40,31 @@ function home() {
         })
         .then(res=>{
             setVisible(false)
-            dispatch({type:'ADD_DATA'})
+            dispatch(updatedata)
         })
         .catch(err=>console.log(err))
     }
 
     function pressHandler()
     {
-        dispatch({type:'ADD_DATA'})
+        dispatch(updatedata)
     }   
 
+    function cancelitem(detail)
+    {
+        //Alert.alert(detail.id)
+        axios.delete('http://127.0.0.1:8000/api/neworder/'+detail.id+'/')
+        .then(res=>{
+            console.log(res.data)
+            dispatch(updatedata)
+        })
+        .catch(err=>console.log(err))
+        //console.log(detail.id,detail.name)
+    }
 
     return (
         <View >
-            <Button onPress={pressHandler} > submit </Button>
+            {/* <Button onPress={pressHandler} > submit </Button> */}
 
             <ScrollView>
             {
@@ -81,7 +93,7 @@ function home() {
                                     }}  
                                 > edit 
                                 </Button>
-                                <Button> cancel  </Button>
+                                <Button  onPress={() => (cancelitem(detail))} > cancel  </Button>
                             </Card.Actions>
 
                         </Card>
