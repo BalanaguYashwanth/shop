@@ -11,7 +11,8 @@ export const styles=StyleSheet.create({
     },
 
     TextInput:{
-        backgroundColor:'#fff'
+        backgroundColor:'#fff',
+        margin:3
     },
 
     form:{
