@@ -11,20 +11,11 @@ function home() {
     const [dummydetails, setDummyDetails] = useState([{ id: 1, name: 'yash', itemname: 'furtuniture', companyname: 'Berg furniture', dimensions: '22-22-22', quantities: '4', address: '315,29th street, kamber colony,annanagarwest,chennai' }])
 
     const dispatch = useDispatch()
-    const details = useSelector(state=>state.data)
-    //const details1 = useSelector(state=>state)
-    //console.log('djknd',details1)
+    const details = useSelector(state=>state.data)   
     const [editdata,setEditdata] = useState()
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
-        // axios.get('http://127.0.0.1:8000/api/neworder/')
-        //     .then(res => {
-        //         console.log(res.data)
-        //         //setDetails(res.data)
-        //     })
-        //     .catch(err => console.log(err))
-        //    // store.dispatch({type:'ADD_DATA'})
         dispatch(updatedata)
     }, [])
 
@@ -45,10 +36,10 @@ function home() {
         .catch(err=>console.log(err))
     }
 
-    function pressHandler()
-    {
-        dispatch(updatedata)
-    }   
+    // function pressHandler()
+    // {
+    //     dispatch(updatedata)
+    // }   
 
     function cancelitem(detail)
     {

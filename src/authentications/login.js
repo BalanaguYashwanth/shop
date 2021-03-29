@@ -4,6 +4,7 @@ import {TextInput,  Button} from 'react-native-paper'
 import {styles} from '../globalstyles/globalstyle'
 import axios from 'axios'
 import  AsyncStorage from '@react-native-community/async-storage'
+import {useDispatch,useSelector} from 'react-redux'
 
 export default function login({navigation}){
 
@@ -17,8 +18,10 @@ export default function login({navigation}){
         })
         .then(async res=>{
             console.log(res.data.token)
+            //await useDispatch({type:'UPDATE_TOKEN','token':res.data.token})
             await AsyncStorage.setItem("user-token",res.data.token)
-            await navigation.navigate('Home')
+            navigation.navigate('Home')
+            window.location.reload()
         })
         .catch(err=>console.log(err))
     }
@@ -32,5 +35,4 @@ export default function login({navigation}){
         </View>
     )
 }
-
 

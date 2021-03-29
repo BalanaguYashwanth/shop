@@ -51,6 +51,7 @@ export default function neworder(){
 
     return(
         <View style={styles.form} >
+            
             <ScrollView>
            <TextInput style={styles.TextInput} onChangeText={(val) => setName(val)} label='Name' />
            <TextInput style={styles.TextInput} onChangeText={(val) => setBrandName(val)} label='Brand Name' />
