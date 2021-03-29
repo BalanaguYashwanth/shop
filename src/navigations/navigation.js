@@ -9,21 +9,10 @@ const screens ={
     Login:{
         screen:Login
     },
-    Home:{
-        screen:Home,
-        navigationOptions:({navigation}) => {
-            return{
-                headerLeft:()=>(null),
-                headerTitle:() => (<Header navigation={navigation} title={'Home'} />),
-                headerStyle:{backgroundColor:'#eee'}
-            }
-           
-        }
-    },
 }
 
-const Homestack = createStackNavigator(screens) 
+const stacknavigation = createStackNavigator(screens) 
 
 //const Navigation = createAppContainer(Homestack)
 
-export default Homestack
+export default stacknavigation

@@ -1,6 +1,6 @@
 import {createDrawerNavigator} from 'react-navigation-drawer'
 import {createAppContainer} from 'react-navigation'
-import Homestack from './navigation'
+import Homestack from './homestack'
 import Neworderstack from '../navigations/neworderstack'
 
 //Homestack in the navigation

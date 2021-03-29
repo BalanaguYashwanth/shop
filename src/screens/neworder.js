@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {View,Text,StyleSheet,ScrollView} from 'react-native'
 import {TextInput, Button} from 'react-native-paper'
 import {styles} from '../globalstyles/globalstyle'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
 import updatedata from '../middleware/middleware-thunk'
+import  AsyncStorage from '@react-native-community/async-storage'
 
 export default function neworder(){
 
@@ -15,6 +16,21 @@ export default function neworder(){
     const [dimensions,setDimensions] = useState()
     const [address,setAddress]= useState()
     const [quantities,setQuantities] = useState()
+    const [token,setToken] = useState()
+
+    useEffect(()=>{
+        load()
+    },[])
+
+    async function load()
+    {
+        try{
+            let token=await AsyncStorage.getItem('user-token')
+            setToken(token)
+        }catch(err){
+            alert(err)
+        }
+    }
 
     function posting()
     {
