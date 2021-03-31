@@ -2,7 +2,7 @@ import axios from 'axios'
 
 function updatedata(){
     return function(dispatch){
-        axios.get('http://127.0.0.1:8000/api/neworder/')
+        axios.get('https://4cc43e3d97ab.ngrok.io/api/neworder/')
         .then(res=>{
             console.log(res.data)
             dispatch({type:'UPDATE_DATA',data:res.data})            

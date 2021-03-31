@@ -13,7 +13,7 @@ const screens ={
 
 const stacknavigation = createStackNavigator(screens) 
 
-const sNavigation = createAppContainer(stacknavigation)
+//const sNavigation = createAppContainer(stacknavigation)
 
-export default sNavigation
+export default stacknavigation
 

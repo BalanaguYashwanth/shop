@@ -7,6 +7,7 @@ import {Provider} from 'react-redux'
 import store from './src/store'
 import StackNavigation from './src/navigations/navigation' 
 import  AsyncStorage from '@react-native-community/async-storage'
+import Switchnavigation from './src/navigations/switchnavigation'
 
 function app(){
   const [token,setToken] = useState(false)
@@ -23,15 +24,17 @@ function app(){
     }
   }
 
-  useEffect(()=>{
-    updatetoken()
-  },[])
+  // useEffect(()=>{
+  //   updatetoken()
+  // },[])
 
+  //  {
+  //       token ?  <DrawerNavigation /> :  <StackNavigation />
+  //     } 
+      
   return(
       <Provider store={store}>
-      {
-        token ?  <DrawerNavigation /> :  <StackNavigation />
-      }
+        <Switchnavigation />
       </Provider>
   )
 }
