@@ -21,7 +21,7 @@ function home() {
 
     function edited(){
         console.log(editdata)
-        axios.patch('https://4cc43e3d97ab.ngrok.io/api/neworder/'+editdata.id+'/',{
+        axios.patch('http://127.0.0.1:8000/api/neworder/'+editdata.id+'/',{
             name:editdata.name,
             brandname:editdata.brandname,
             modelname:editdata.modelname,
@@ -44,7 +44,7 @@ function home() {
     function cancelitem(detail)
     {
         //Alert.alert(detail.id)
-        axios.delete('https://4cc43e3d97ab.ngrok.io/api/neworder/'+detail.id+'/')
+        axios.delete('http://127.0.0.1:8000/api/neworder/'+detail.id+'/')
         .then(res=>{
             console.log(res.data)
             dispatch(updatedata)

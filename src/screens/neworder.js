@@ -43,24 +43,33 @@ export default function neworder(){
             quantities:quantities
         })
         .then(res=>{
-            console.log(res)
+            console.log('res')
+            setName('')
+            setBrandName('')
+            setModelName('')
+            setDimensions('')
+            setAddress('')
+            setQuantities('')
+            setToken('')
             dispatch(updatedata)
+           
         })
-        .catch(err=>console.log(err.response))
+        .catch(err=>console.log(err.response))      
     }
 
     return(
         <View style={styles.form} >
             
             <ScrollView>
-           <TextInput style={styles.TextInput} onChangeText={(val) => setName(val)} label='Name' />
-           <TextInput style={styles.TextInput} onChangeText={(val) => setBrandName(val)} label='Brand Name' />
-           <TextInput style={styles.TextInput} onChangeText={(val) => setModelName(val)} label='Model Name' />
-           <TextInput style={styles.TextInput} onChangeText={(val) => setDimensions(val)}  keyboardType = 'numeric' label='Height-Width-Length' />
-           <TextInput style={styles.TextInput} onChangeText={(val) => setAddress(val)}  keyboardType = 'numeric' label='Number of Quantities' />
-           <TextInput style={styles.TextInput} onChangeText={(val) => setQuantities(val)} multiline={true} numberOfLines={3} label='Pickup Address' />
+           <TextInput style={styles.TextInput} value={name} onChangeText={(val) => setName(val)} label='Name' />
+           <TextInput style={styles.TextInput} value={brandName} onChangeText={(val) => setBrandName(val)} label='Brand Name' />
+           <TextInput style={styles.TextInput} value={modelName} onChangeText={(val) => setModelName(val)} label='Model Name' />
+           <TextInput style={styles.TextInput} value={dimensions} onChangeText={(val) => setDimensions(val)}  keyboardType = 'numeric' label='Height-Width-Length' />
+           <TextInput style={styles.TextInput} value={quantities} onChangeText={(val) => setQuantities(val)} keyboardType = 'numeric'  label='Number of Quantities'  />
+           <TextInput style={styles.TextInput} value={address} onChangeText={(val) => setAddress(val)} multiline={true}  numberOfLines={3} label='Pickup Address'  />
            <Button mode="contained" onPress={posting} > Order </Button>
            </ScrollView>
+           
         </View>
     )
 }
