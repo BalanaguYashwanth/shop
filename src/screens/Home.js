@@ -86,7 +86,6 @@ function home() {
                                 </Button>
                                 <Button  onPress={() => (cancelitem(detail))} > cancel  </Button>
                             </Card.Actions>
-
                         </Card>
                     </View>
                 ))

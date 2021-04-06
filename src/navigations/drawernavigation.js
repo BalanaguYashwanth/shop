@@ -6,9 +6,9 @@ import LogoutStack from '../navigations/logoutstack'
 //Homestack in the navigation
 
 const screens={
-    Home:{
-        screen:Homestack
-    },
+    // Home:{
+    //     screen:Homestack
+    // },
     Neworder:{
         screen:Neworderstack
     },
